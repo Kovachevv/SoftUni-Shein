@@ -2,6 +2,7 @@ package com.example.shein.config;
 
 import com.example.shein.service.SheinUserServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -22,10 +24,16 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
     }
 
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http.authorizeRequests().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
+
+                antMatchers("/", "/users/login", "/users/register").permitAll().
+                antMatchers("/**").authenticated().
+                and().formLogin().loginPage("/users/login").usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
+        passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).defaultSuccessUrl("/").failureForwardUrl("users/login").
+                and().
+                logout().logoutUrl("/logout ").logoutSuccessUrl("/").invalidateHttpSession(true).deleteCookies("JSESSIONID");
     }
 
     @Override
