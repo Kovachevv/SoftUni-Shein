@@ -24,23 +24,26 @@ public class AlbumEntity extends BaseEntity{
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
+    public AlbumEntity setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
+        return this;
     }
 
     public ArtistEntity getArtist() {
         return artist;
     }
 
-    public void setArtist(ArtistEntity artist) {
+    public AlbumEntity setArtist(ArtistEntity artist) {
         this.artist = artist;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public AlbumEntity setDescription(String description) {
         this.description = description;
+        return this;
     }
 }

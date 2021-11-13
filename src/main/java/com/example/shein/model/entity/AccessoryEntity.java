@@ -23,23 +23,26 @@ public class AccessoryEntity extends BaseEntity{
         return model;
     }
 
-    public void setModel(String model) {
+    public AccessoryEntity setModel(String model) {
         this.model = model;
+        return this;
     }
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public AccessoryEntity setPrice(BigDecimal price) {
         this.price = price;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public AccessoryEntity setDescription(String description) {
         this.description = description;
+        return this;
     }
 }

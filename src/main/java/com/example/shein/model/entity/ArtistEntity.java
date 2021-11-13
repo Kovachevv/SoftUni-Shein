@@ -21,23 +21,26 @@ public class ArtistEntity extends BaseEntity{
         return name;
     }
 
-    public void setName(String name) {
+    public ArtistEntity setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public ArtistEntity setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public Set<AlbumEntity> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(Set<AlbumEntity> albums) {
+    public ArtistEntity setAlbums(Set<AlbumEntity> albums) {
         this.albums = albums;
+        return this;
     }
 }

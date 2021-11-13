@@ -21,15 +21,17 @@ public class BrandEntity extends BaseEntity{
         return name;
     }
 
-    public void setName(String name) {
+    public BrandEntity setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public BrandEntity setDescription(String description) {
         this.description = description;
+        return this;
     }
 }

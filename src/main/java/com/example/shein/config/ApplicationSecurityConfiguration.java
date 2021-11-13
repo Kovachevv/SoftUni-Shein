@@ -31,9 +31,9 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 antMatchers("/", "/users/login", "/users/register").permitAll().
                 antMatchers("/**").authenticated().
                 and().formLogin().loginPage("/users/login").usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
-        passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).defaultSuccessUrl("/").failureForwardUrl("users/login").
+        passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).defaultSuccessUrl("/").
                 and().
-                logout().logoutUrl("/logout ").logoutSuccessUrl("/").invalidateHttpSession(true).deleteCookies("JSESSIONID");
+                logout().logoutUrl("/users/logout ").logoutSuccessUrl("/").invalidateHttpSession(true).deleteCookies("JSESSIONID");
     }
 
     @Override

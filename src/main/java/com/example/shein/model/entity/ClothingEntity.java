@@ -34,56 +34,62 @@ public class ClothingEntity extends BaseEntity {
         return model;
     }
 
-    public void setModel(String model) {
+    public ClothingEntity setModel(String model) {
         this.model = model;
+        return this;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public ClothingEntity setColor(String color) {
         this.color = color;
+        return this;
     }
-
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public ClothingEntity setPrice(BigDecimal price) {
         this.price = price;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public ClothingEntity setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public BrandEntity getBrand() {
         return brand;
     }
 
-    public void setBrand(BrandEntity brand) {
+    public ClothingEntity setBrand(BrandEntity brand) {
         this.brand = brand;
+        return this;
     }
 
     public ClothingTypeEnum getType() {
         return type;
     }
 
-    public void setType(ClothingTypeEnum type) {
+    public ClothingEntity setType(ClothingTypeEnum type) {
         this.type = type;
+        return this;
     }
 
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public ClothingEntity setImage(String image) {
         this.image = image;
+        return this;
     }
 }

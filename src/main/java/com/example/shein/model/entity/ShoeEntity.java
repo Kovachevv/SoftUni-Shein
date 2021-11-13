@@ -35,47 +35,62 @@ public class ShoeEntity extends BaseEntity{
         return model;
     }
 
-    public void setModel(String model) {
+    public ShoeEntity setModel(String model) {
         this.model = model;
+        return this;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public ShoeEntity setColor(String color) {
         this.color = color;
+        return this;
     }
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public ShoeEntity setPrice(BigDecimal price) {
         this.price = price;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public ShoeEntity setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public BrandEntity getBrand() {
         return brand;
     }
 
-    public void setBrand(BrandEntity brand) {
+    public ShoeEntity setBrand(BrandEntity brand) {
         this.brand = brand;
+        return this;
+    }
+
+    public ShoeTypeEnum getType() {
+        return type;
+    }
+
+    public ShoeEntity setType(ShoeTypeEnum type) {
+        this.type = type;
+        return this;
     }
 
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public ShoeEntity setImage(String image) {
         this.image = image;
+        return this;
     }
 }
