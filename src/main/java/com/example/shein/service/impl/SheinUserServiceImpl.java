@@ -1,4 +1,4 @@
-package com.example.shein.service;
+package com.example.shein.service.impl;
 
 import com.example.shein.model.entity.UserEntity;
 import com.example.shein.repository.UserRepository;
