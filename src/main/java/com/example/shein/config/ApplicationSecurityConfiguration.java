@@ -35,7 +35,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
                 passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).
                 defaultSuccessUrl("/").
-                failureForwardUrl("/error-page").
+                failureForwardUrl("/users/error-page").
                 and().
                 logout().logoutUrl("/users/logout").logoutSuccessUrl("/").invalidateHttpSession(true).deleteCookies("JSESSIONID");
     }
