@@ -14,6 +14,18 @@ public class BrandEntity extends BaseEntity{
     @Column(nullable = false)
     private String description;
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public BrandEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    @Column(nullable = false)
+    private String imageUrl;
+
     public BrandEntity() {
     }
 

@@ -16,8 +16,6 @@ public class ClothingEntity extends BaseEntity {
     @Column(nullable = false,unique = true)
     private String model;
     @Column(nullable = false)
-    private String color;
-    @Column(nullable = false)
     private BigDecimal price;
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -36,15 +34,6 @@ public class ClothingEntity extends BaseEntity {
 
     public ClothingEntity setModel(String model) {
         this.model = model;
-        return this;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public ClothingEntity setColor(String color) {
-        this.color = color;
         return this;
     }
 
