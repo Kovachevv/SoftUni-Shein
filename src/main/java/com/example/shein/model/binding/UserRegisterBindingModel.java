@@ -23,6 +23,18 @@ public class UserRegisterBindingModel {
     @Size(min=4, max=20)
     @NotNull
     private String username;
+    @NotNull
+    @Size(min=4, max=20)
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public UserRegisterBindingModel setEmail(String email) {
+        this.email = email;
+        return this;
+    }
 
     public String getFirstName() {
         return firstName;

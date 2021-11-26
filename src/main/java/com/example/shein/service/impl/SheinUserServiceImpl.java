@@ -19,6 +19,7 @@ public class SheinUserServiceImpl implements UserDetailsService {
 
     private UserRepository userRepository;
 
+
     public SheinUserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

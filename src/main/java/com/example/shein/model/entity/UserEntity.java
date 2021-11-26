@@ -30,8 +30,9 @@ public class UserEntity  extends BaseEntity{
         return username;
     }
 
-    public void setUsername(String username) {
+    public UserEntity setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getPassword() {
