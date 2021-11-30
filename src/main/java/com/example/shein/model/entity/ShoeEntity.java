@@ -23,7 +23,7 @@ public class ShoeEntity extends BaseEntity{
     private BrandEntity brand;
     @Column(nullable = false)
     private ShoeTypeEnum type;
-    private String image;
+    private String imageUrl;
 
 
     public ShoeEntity() {

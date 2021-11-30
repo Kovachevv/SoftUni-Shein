@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class AccessoryEntity extends BaseEntity{
 
     @Column(nullable = false)
-    private String model;
+    private String name;
     @Column(nullable = false)
     private BigDecimal price;
     @Column(columnDefinition = "TEXT",nullable = false)
@@ -19,12 +19,12 @@ public class AccessoryEntity extends BaseEntity{
     public AccessoryEntity() {
     }
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public AccessoryEntity setModel(String model) {
-        this.model = model;
+    public AccessoryEntity setName(String name) {
+        this.name = name;
         return this;
     }
 

@@ -14,7 +14,7 @@ public class AlbumEntity extends BaseEntity{
     private LocalDate releaseDate;
     @ManyToOne
     private ArtistEntity artist;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
     public AlbumEntity() {

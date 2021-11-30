@@ -11,17 +11,8 @@ public class BrandEntity extends BaseEntity{
 
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public BrandEntity setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-        return this;
-    }
 
     @Column(nullable = false)
     private String imageUrl;
@@ -44,6 +35,15 @@ public class BrandEntity extends BaseEntity{
 
     public BrandEntity setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public BrandEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
         return this;
     }
 }

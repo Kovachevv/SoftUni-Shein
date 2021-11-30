@@ -9,7 +9,7 @@ import java.util.Set;
 public class ArtistEntity extends BaseEntity{
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
     @OneToMany
     private Set<AlbumEntity> albums;
