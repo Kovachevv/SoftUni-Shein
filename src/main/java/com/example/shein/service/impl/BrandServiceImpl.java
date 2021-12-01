@@ -1,6 +1,7 @@
 package com.example.shein.service.impl;
 
 import com.example.shein.model.entity.BrandEntity;
+import com.example.shein.model.service.BrandAddServiceModel;
 import com.example.shein.model.view.BrandDetailsViewModel;
 import com.example.shein.model.view.BrandViewModel;
 import com.example.shein.repository.BrandRepository;
@@ -20,7 +21,6 @@ public class BrandServiceImpl implements BrandService {
 
     public BrandServiceImpl(BrandRepository brandRepository, ModelMapper modelMapper) {
         this.brandRepository = brandRepository;
-
         this.modelMapper = modelMapper;
     }
 
@@ -28,16 +28,37 @@ public class BrandServiceImpl implements BrandService {
     public List<BrandViewModel> getAllBrands() {
         return brandRepository.findAll().
                 stream().
-                map(brandEntity -> {
-                    return new BrandViewModel().setName(brandEntity.getName()).setDescription(brandEntity.getDescription()).setImageUrl(brandEntity.getImageUrl());
-                }).collect(Collectors.toList());
+                map(this::map).
+                collect(Collectors.toList());
+    }
+
+    private BrandViewModel map(BrandEntity brandEntity) {
+        BrandViewModel brandViewModel = this.modelMapper
+                .map(brandEntity, BrandViewModel.class);
+        return brandViewModel;
     }
 
 
-    @Override
-    public BrandViewModel findById(Long id, String user) {
 
-        return null;
+    @Override
+    public BrandDetailsViewModel findById(Long id) {
+        return brandRepository.
+                findById(id).
+                map(o -> mapDetailsView(o))
+                .get();
+    }
+
+    @Override
+    public void addBrand(BrandAddServiceModel brandAddServiceModel) {
+        BrandEntity brandEntity = modelMapper.map(brandAddServiceModel, BrandEntity.class);
+        brandRepository.save(brandEntity);
+    }
+
+
+    private BrandDetailsViewModel mapDetailsView( BrandEntity brand) {
+        BrandDetailsViewModel brandDetailsViewModel = this.modelMapper.map(brand, BrandDetailsViewModel.class);
+        brandDetailsViewModel.setDescription(brand.getDescription()).setImageUrl(brand.getImageUrl()).setName(brand.getName());
+        return brandDetailsViewModel;
     }
 
 

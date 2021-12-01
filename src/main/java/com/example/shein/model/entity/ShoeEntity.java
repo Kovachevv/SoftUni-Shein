@@ -73,12 +73,12 @@ public class ShoeEntity extends BaseEntity{
         return this;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public ShoeEntity setImage(String image) {
-        this.image = image;
+    public ShoeEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
         return this;
     }
 }

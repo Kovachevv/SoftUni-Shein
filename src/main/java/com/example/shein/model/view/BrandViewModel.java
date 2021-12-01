@@ -5,6 +5,16 @@ public class BrandViewModel {
     private String name;
     private String description;
     private String imageUrl;
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public BrandViewModel setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     public BrandViewModel setName(String name) {
         this.name = name;
