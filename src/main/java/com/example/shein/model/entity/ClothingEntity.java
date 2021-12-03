@@ -1,8 +1,6 @@
 package com.example.shein.model.entity;
 
 
-import com.example.shein.model.enums.ClothingTypeEnum;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -14,7 +12,7 @@ import java.math.BigDecimal;
 public class ClothingEntity extends BaseEntity {
 
     @Column(nullable = false,unique = true)
-    private String model;
+    private String name;
     @Column(nullable = false)
     private BigDecimal price;
     @Column(columnDefinition = "TEXT")
@@ -22,18 +20,17 @@ public class ClothingEntity extends BaseEntity {
     @ManyToOne
     private BrandEntity brand;
     @Column(nullable = false)
-    private ClothingTypeEnum type;
-    private String image;
+    private String imageUrl;
 
     public ClothingEntity() {
     }
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public ClothingEntity setModel(String model) {
-        this.model = model;
+    public ClothingEntity setName(String name) {
+        this.name = name;
         return this;
     }
 
@@ -64,21 +61,12 @@ public class ClothingEntity extends BaseEntity {
         return this;
     }
 
-    public ClothingTypeEnum getType() {
-        return type;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public ClothingEntity setType(ClothingTypeEnum type) {
-        this.type = type;
-        return this;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public ClothingEntity setImage(String image) {
-        this.image = image;
+    public ClothingEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
         return this;
     }
 }

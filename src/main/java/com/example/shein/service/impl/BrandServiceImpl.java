@@ -33,9 +33,8 @@ public class BrandServiceImpl implements BrandService {
     }
 
     private BrandViewModel map(BrandEntity brandEntity) {
-        BrandViewModel brandViewModel = this.modelMapper
+        return this.modelMapper
                 .map(brandEntity, BrandViewModel.class);
-        return brandViewModel;
     }
 
 

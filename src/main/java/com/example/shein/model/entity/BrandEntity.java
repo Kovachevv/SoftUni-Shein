@@ -1,10 +1,9 @@
 package com.example.shein.model.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name = "brands")
@@ -17,6 +16,8 @@ public class BrandEntity extends BaseEntity{
     private String description;
     @Column(nullable = false)
     private String imageUrl;
+    @OneToMany(mappedBy = "brand")
+    private Set<ClothingEntity> clothes;
 
     public BrandEntity() {
     }
