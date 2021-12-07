@@ -9,5 +9,6 @@ public interface ClothingService {
 
     List<ClothingSummaryView> getAllClothes();
     ClothingDetailsView findById(Long id);
+    void initClothes();
 
 }
