@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class SheinUserServiceImpl implements UserDetailsService {
 
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
 
     public SheinUserServiceImpl(UserRepository userRepository) {
@@ -26,7 +26,9 @@ public class SheinUserServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
+
+        UserEntity userEntity = userRepository.findByUsername(username).
+                orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
         return mapToUserDetails(userEntity);
     }
 
@@ -36,6 +38,6 @@ public class SheinUserServiceImpl implements UserDetailsService {
                 .stream()
                 .map(r -> new SimpleGrantedAuthority("ROLE_" + r.getRole().name())).collect(Collectors.toList());
 
-        return new User(user.getUsername(),user.getPassword(),authorities);
+        return new SheinUser(user.getUsername(),user.getPassword(),authorities);
     }
 }

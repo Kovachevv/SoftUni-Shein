@@ -5,6 +5,7 @@ import javax.validation.constraints.Size;
 
 public class BrandDTO {
 
+    private Long id;
     @Size(min=3, max=20)
     private String name;
     @NotNull
@@ -12,6 +13,15 @@ public class BrandDTO {
     private String description;
     @NotNull
     private String imageUrl;
+
+    public Long getId() {
+        return id;
+    }
+
+    public BrandDTO setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     public String getName() {
         return name;

@@ -24,21 +24,16 @@
                 <h5 class="card-title" th:text="*{description}">
                    description</h5>
             </div>
-   <!--         <ul class="offer-details list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="card-text"><span th:text="|Mileage: *{mileage}|">• Mileage</span></div>
-                    <div class="card-text"><span th:text="|Price: *{price}|">• Price</span></div>
-                </li>
-            </ul>-->
-<!--            <div class="card-body">
+            <div class="card-body">
                 <div class="row">
-                    <a class="btn btn-link" th:href="@{/offers/{id}/edit(id=*{id})}">Update</a>
-
-                    <form th:action="@{/offers/{id}(id=*{id})}" th:method="delete">
+                    <th:block th:if="*{canDelete}">
+                        <a class="btn btn-link" th:href="@{/brands/{id}/edit(id=*{id})}">Update</a>
+                    <form th:action="@{/brands/{id}(id=*{id})}" th:method="delete">
                         <input type="submit" class="btn btn-link" value="Delete"/>
                     </form>
+                    </th:block>
                 </div>
-            </div>-->
+            </div>
         </div>
         <div th:object="${brandDetails}"
              class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">

@@ -1,27 +1,19 @@
-package com.example.shein.model.view;
+package com.example.shein.model.service;
 
-public class BrandDetailsViewModel {
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+public class BrandUpdateServiceModel {
     private Long id;
     private String name;
     private String description;
     private String imageUrl;
-    private boolean canDelete;
-
-    public boolean isCanDelete() {
-        return canDelete;
-    }
-
-    public BrandDetailsViewModel setCanDelete(boolean canDelete) {
-        this.canDelete = canDelete;
-        return this;
-    }
 
     public Long getId() {
         return id;
     }
 
-    public BrandDetailsViewModel setId(Long id) {
+    public BrandUpdateServiceModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -30,7 +22,7 @@ public class BrandDetailsViewModel {
         return name;
     }
 
-    public BrandDetailsViewModel setName(String name) {
+    public BrandUpdateServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -39,7 +31,7 @@ public class BrandDetailsViewModel {
         return description;
     }
 
-    public BrandDetailsViewModel setDescription(String description) {
+    public BrandUpdateServiceModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -48,10 +40,8 @@ public class BrandDetailsViewModel {
         return imageUrl;
     }
 
-    public BrandDetailsViewModel setImageUrl(String imageUrl) {
+    public BrandUpdateServiceModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }
-
-
 }

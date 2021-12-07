@@ -63,16 +63,20 @@ public class UserServiceImpl implements UserService {
             UserRoleEntity adminRole = userRoleRepository.findByRole(UserRoleEnum.ADMIN);
             UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.USER);
 
-            UserEntity admin = new UserEntity();
+                            UserEntity admin = new UserEntity();
             admin.setFirstName("Stanimir").
                     setLastName("Kovachev").
                     setEmail("stanimirkovachev@gmail.com").
                     setPassword(passwordEncoder.encode("test")).
                     setUsername("admin");
-
             admin.setRoles(Set.of(adminRole, userRole));
 
+            UserEntity testUser = new UserEntity();
+            testUser.setFirstName("Ivan").setLastName("Ivanov").setEmail("ivanivanov@abv.bg").
+                    setUsername("test").setRoles(Set.of(userRole)).setPassword(passwordEncoder.encode("test"));
+
             userRepository.save(admin);
+            userRepository.save(testUser);
         }
 
     }
