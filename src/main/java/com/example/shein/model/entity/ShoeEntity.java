@@ -1,12 +1,7 @@
 package com.example.shein.model.entity;
 
 
-import com.example.shein.model.enums.ShoeTypeEnum;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -14,29 +9,29 @@ import java.math.BigDecimal;
 public class ShoeEntity extends BaseEntity{
 
     @Column(nullable = false,unique = true)
-    private String model;
+    private String name;
     @Column(nullable = false)
     private BigDecimal price;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private BrandEntity brand;
     @Column(nullable = false)
-    private ShoeTypeEnum type;
     private String imageUrl;
 
 
     public ShoeEntity() {
     }
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public ShoeEntity setModel(String model) {
-        this.model = model;
+    public ShoeEntity setName(String name) {
+        this.name = name;
         return this;
     }
+
     public BigDecimal getPrice() {
         return price;
     }
@@ -64,14 +59,6 @@ public class ShoeEntity extends BaseEntity{
         return this;
     }
 
-    public ShoeTypeEnum getType() {
-        return type;
-    }
-
-    public ShoeEntity setType(ShoeTypeEnum type) {
-        this.type = type;
-        return this;
-    }
 
     public String getImageUrl() {
         return imageUrl;

@@ -1,20 +1,40 @@
-package com.example.shein.model.service.ClothesService;
+package com.example.shein.model.binding;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-public class ClothesUpdateServiceModel {
+public class ShoeDTO {
 
     private Long id;
+    private Long brandId;
+    @NotNull
+    @Size(min=3)
     private String name;
+    @Positive
+    @NotNull
     private BigDecimal price;
+    @NotNull
     private String description;
+    @NotNull
     private String imageUrl;
 
     public Long getId() {
         return id;
     }
 
-    public ClothesUpdateServiceModel setId(Long id) {
+    public ShoeDTO setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public ShoeDTO setBrandId(Long brandId) {
+        this.brandId = brandId;
         return this;
     }
 
@@ -22,7 +42,7 @@ public class ClothesUpdateServiceModel {
         return name;
     }
 
-    public ClothesUpdateServiceModel setName(String name) {
+    public ShoeDTO setName(String name) {
         this.name = name;
         return this;
     }
@@ -31,7 +51,7 @@ public class ClothesUpdateServiceModel {
         return price;
     }
 
-    public ClothesUpdateServiceModel setPrice(BigDecimal price) {
+    public ShoeDTO setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -40,7 +60,7 @@ public class ClothesUpdateServiceModel {
         return description;
     }
 
-    public ClothesUpdateServiceModel setDescription(String description) {
+    public ShoeDTO setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -49,7 +69,7 @@ public class ClothesUpdateServiceModel {
         return imageUrl;
     }
 
-    public ClothesUpdateServiceModel setImageUrl(String imageUrl) {
+    public ShoeDTO setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

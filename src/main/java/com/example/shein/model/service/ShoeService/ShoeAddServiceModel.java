@@ -1,34 +1,24 @@
-package com.example.shein.model.binding;
+package com.example.shein.model.service.ShoeService;
 
 import com.example.shein.model.entity.BrandEntity;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-public class ClothesDTO {
+public class ShoeAddServiceModel {
 
     private Long id;
     private Long brandId;
-    @NotNull
-    @Size(min=3)
     private String name;
-    @Positive
-    @NotNull
     private BigDecimal price;
-    @NotNull
     private String description;
-    @NotNull
+    private BrandEntity brand;
     private String imageUrl;
 
     public Long getId() {
         return id;
     }
 
-    public ClothesDTO setId(Long id) {
+    public ShoeAddServiceModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -37,7 +27,7 @@ public class ClothesDTO {
         return brandId;
     }
 
-    public ClothesDTO setBrandId(Long brandId) {
+    public ShoeAddServiceModel setBrandId(Long brandId) {
         this.brandId = brandId;
         return this;
     }
@@ -46,7 +36,7 @@ public class ClothesDTO {
         return name;
     }
 
-    public ClothesDTO setName(String name) {
+    public ShoeAddServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -55,7 +45,7 @@ public class ClothesDTO {
         return price;
     }
 
-    public ClothesDTO setPrice(BigDecimal price) {
+    public ShoeAddServiceModel setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -64,8 +54,17 @@ public class ClothesDTO {
         return description;
     }
 
-    public ClothesDTO setDescription(String description) {
+    public ShoeAddServiceModel setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public BrandEntity getBrand() {
+        return brand;
+    }
+
+    public ShoeAddServiceModel setBrand(BrandEntity brand) {
+        this.brand = brand;
         return this;
     }
 
@@ -73,7 +72,7 @@ public class ClothesDTO {
         return imageUrl;
     }
 
-    public ClothesDTO setImageUrl(String imageUrl) {
+    public ShoeAddServiceModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

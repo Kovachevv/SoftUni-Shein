@@ -118,12 +118,6 @@ public class ClothingServiceImpl implements ClothingService {
         clothingEntity.setName(serviceModel.getName()).setPrice(serviceModel.getPrice()).setImageUrl(serviceModel.getImageUrl()).
                 setDescription(serviceModel.getDescription());
             clothingRepository.save(clothingEntity);
-//
-//        BrandEntity brandEntity = brandRepository.findById(serviceModel.getId()).orElseThrow(() ->
-//                new ObjectNotFoundException("Offer with id " + serviceModel.getId() + " not found!"));
-//        brandEntity.setName(serviceModel.getName()).
-//                setDescription(serviceModel.getDescription()).setImageUrl(serviceModel.getImageUrl());
-//        brandRepository.save(brandEntity);
 
     }
 

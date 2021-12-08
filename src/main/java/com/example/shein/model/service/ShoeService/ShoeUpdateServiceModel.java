@@ -1,7 +1,8 @@
-package com.example.shein.model.service.ClothesService;
+package com.example.shein.model.service.ShoeService;
+
 import java.math.BigDecimal;
 
-public class ClothesUpdateServiceModel {
+public class ShoeUpdateServiceModel {
 
     private Long id;
     private String name;
@@ -13,7 +14,7 @@ public class ClothesUpdateServiceModel {
         return id;
     }
 
-    public ClothesUpdateServiceModel setId(Long id) {
+    public ShoeUpdateServiceModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -22,7 +23,7 @@ public class ClothesUpdateServiceModel {
         return name;
     }
 
-    public ClothesUpdateServiceModel setName(String name) {
+    public ShoeUpdateServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -31,7 +32,7 @@ public class ClothesUpdateServiceModel {
         return price;
     }
 
-    public ClothesUpdateServiceModel setPrice(BigDecimal price) {
+    public ShoeUpdateServiceModel setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -40,7 +41,7 @@ public class ClothesUpdateServiceModel {
         return description;
     }
 
-    public ClothesUpdateServiceModel setDescription(String description) {
+    public ShoeUpdateServiceModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -49,7 +50,7 @@ public class ClothesUpdateServiceModel {
         return imageUrl;
     }
 
-    public ClothesUpdateServiceModel setImageUrl(String imageUrl) {
+    public ShoeUpdateServiceModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

@@ -9,6 +9,8 @@ public class ClothingSummaryView {
     private Long id;
     private String name;
     private BigDecimal price;
+    private String brand;
+    private String imageUrl;
 
     public String getBrand() {
         return brand;
@@ -18,9 +20,6 @@ public class ClothingSummaryView {
         this.brand = brand;
         return this;
     }
-
-    private String brand;
-    private String imageUrl;
 
     public Long getId() {
         return id;

@@ -18,6 +18,17 @@ public class BrandEntity extends BaseEntity{
     private String imageUrl;
     @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<ClothingEntity> clothes;
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<ShoeEntity> shoes;
+
+    public Set<ShoeEntity> getShoes() {
+        return shoes;
+    }
+
+    public BrandEntity setShoes(Set<ShoeEntity> shoes) {
+        this.shoes = shoes;
+        return this;
+    }
 
     public Set<ClothingEntity> getClothes() {
         return clothes;
