@@ -97,13 +97,14 @@ public class BrandServiceImpl implements BrandService {
             adidas.setName("Adidas").setImageUrl("https://logos-world.net/wp-content/uploads/2020/04/Adidas-Symbol.png").
                     setDescription("The legacy, history and legend that created the whole culture around sneakers. adidas Originals has been dominating the field of men''s fashion, sneakers and sportswear for decades. Why? Because behind the unceasing progress of the Originals lies proven quality, reliable materials and innovation dressed in the best of the past. Read on to find out why adidas Originals sneakers and shoe wear are so popular today and how they managed to dominate almost all men''s footwear.");
 
+            brandRepository.saveAll(List.of(nike,adidas));
         }
     }
 
     @Override
     public void updateBrand(BrandUpdateServiceModel serviceModel) throws ObjectNotFoundException {
         BrandEntity brandEntity = brandRepository.findById(serviceModel.getId()).orElseThrow(() ->
-                new ObjectNotFoundException("Offer with id " + serviceModel.getId() + " not found!"));
+                new ObjectNotFoundException("Brand with id " + serviceModel.getId() + " not found!"));
         brandEntity.setName(serviceModel.getName()).
                 setDescription(serviceModel.getDescription()).setImageUrl(serviceModel.getImageUrl());
         brandRepository.save(brandEntity);

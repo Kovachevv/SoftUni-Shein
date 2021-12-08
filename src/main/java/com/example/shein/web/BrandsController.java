@@ -81,7 +81,7 @@ public class BrandsController {
     }
 
     @GetMapping("/{id}/edit")
-    public String editOffer(@PathVariable Long id, Model model,
+    public String editBrand(@PathVariable Long id, Model model,
                             @AuthenticationPrincipal SheinUser currentUser) {
 
         BrandDetailsViewModel brandDetailsViewModel = brandService.findById(id, currentUser.getUserIdentifier());
@@ -95,14 +95,13 @@ public class BrandsController {
 
     }
 
-    @GetMapping("/{id}/edit/errors")
-    public String editOfferErrors(@PathVariable Long id, Model model) {
-
+    @GetMapping("/edit/{id}/errors")
+    public String editBrandErrors(@PathVariable Long id, Model model) {
         return "brand-update";
     }
 
     @PatchMapping("/{id}/edit")
-    public String editOffer(
+    public String editBrand(
             @PathVariable Long id,
             @Valid BrandDTO brandDTO,
             BindingResult bindingResult,
@@ -113,7 +112,7 @@ public class BrandsController {
             redirectAttributes.addFlashAttribute("brandModel", brandDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.brandModel", bindingResult);
 
-            return "redirect:/brands/" + id + "/edit/errors";
+            return "redirect:/brands/edit/" + id + "/errors";
         }
 
         BrandUpdateServiceModel serviceModel = modelMapper.map(brandDTO,
@@ -122,7 +121,7 @@ public class BrandsController {
 
         brandService.updateBrand(serviceModel);
 
-        return "redirect:/brands/" + id + "/details";
+        return "redirect:/brands/all";
     }
 }
 

@@ -16,6 +16,8 @@ public class BrandEntity extends BaseEntity{
     private String description;
     @Column(nullable = false)
     private String imageUrl;
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<ClothingEntity> clothes;
 
     public Set<ClothingEntity> getClothes() {
         return clothes;
@@ -25,9 +27,6 @@ public class BrandEntity extends BaseEntity{
         this.clothes = clothes;
         return this;
     }
-
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ClothingEntity> clothes;
 
     public BrandEntity() {
     }

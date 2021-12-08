@@ -14,7 +14,7 @@ public class ClothingEntity extends BaseEntity {
     private BigDecimal price;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private BrandEntity brand;
     @Column(nullable = false)
     private String imageUrl;

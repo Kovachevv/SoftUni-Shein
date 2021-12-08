@@ -11,7 +11,7 @@ spring:
     username: root
   sql:
     init:
-        mode: always
+        mode: never
 
   jpa:
     defer-datasource-initialization: true
@@ -22,6 +22,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
 
   mvc:
     hiddenmethod:

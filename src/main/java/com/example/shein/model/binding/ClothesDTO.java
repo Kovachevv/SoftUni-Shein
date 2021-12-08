@@ -1,54 +1,53 @@
-package com.example.shein.model.view;
+package com.example.shein.model.binding;
 
 import com.example.shein.model.entity.BrandEntity;
 
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-public class ClothingDetailsView {
+public class ClothesDTO {
 
     private Long id;
+
+    private Long brandId;
+    @NotNull
+    @Size(min=3)
     private String name;
+    @Positive
+    @NotNull
     private BigDecimal price;
+    @NotNull
     private String description;
-    private String brand;
-    private boolean canDelete;
-
-    public boolean isCanDelete() {
-        return canDelete;
-    }
-
-    public ClothingDetailsView setCanDelete(boolean canDelete) {
-        this.canDelete = canDelete;
-        return this;
-    }
+    @NotNull
+    private String imageUrl;
 
     public Long getId() {
         return id;
     }
 
-    public ClothingDetailsView setId(Long id) {
+    public ClothesDTO setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public String getBrand() {
-        return brand;
+    public Long getBrandId() {
+        return brandId;
     }
 
-    public ClothingDetailsView setBrand(String brand) {
-        this.brand = brand;
+    public ClothesDTO setBrandId(Long brandId) {
+        this.brandId = brandId;
         return this;
     }
-
-    private String imageUrl;
 
     public String getName() {
         return name;
     }
 
-    public ClothingDetailsView setName(String name) {
+    public ClothesDTO setName(String name) {
         this.name = name;
         return this;
     }
@@ -57,7 +56,7 @@ public class ClothingDetailsView {
         return price;
     }
 
-    public ClothingDetailsView setPrice(BigDecimal price) {
+    public ClothesDTO setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -66,17 +65,16 @@ public class ClothingDetailsView {
         return description;
     }
 
-    public ClothingDetailsView setDescription(String description) {
+    public ClothesDTO setDescription(String description) {
         this.description = description;
         return this;
     }
-
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public ClothingDetailsView setImageUrl(String imageUrl) {
+    public ClothesDTO setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

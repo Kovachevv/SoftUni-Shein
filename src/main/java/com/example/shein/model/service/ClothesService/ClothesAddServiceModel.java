@@ -1,4 +1,4 @@
-package com.example.shein.model.view;
+package com.example.shein.model.service.ClothesService;
 
 import com.example.shein.model.entity.BrandEntity;
 
@@ -6,49 +6,39 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
-public class ClothingDetailsView {
+public class ClothesAddServiceModel {
 
     private Long id;
+    private Long brandId;
     private String name;
     private BigDecimal price;
     private String description;
-    private String brand;
-    private boolean canDelete;
-
-    public boolean isCanDelete() {
-        return canDelete;
-    }
-
-    public ClothingDetailsView setCanDelete(boolean canDelete) {
-        this.canDelete = canDelete;
-        return this;
-    }
+    private BrandEntity brand;
+    private String imageUrl;
 
     public Long getId() {
         return id;
     }
 
-    public ClothingDetailsView setId(Long id) {
+    public ClothesAddServiceModel setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public String getBrand() {
-        return brand;
+    public Long getBrandId() {
+        return brandId;
     }
 
-    public ClothingDetailsView setBrand(String brand) {
-        this.brand = brand;
+    public ClothesAddServiceModel setBrandId(Long brandId) {
+        this.brandId = brandId;
         return this;
     }
-
-    private String imageUrl;
 
     public String getName() {
         return name;
     }
 
-    public ClothingDetailsView setName(String name) {
+    public ClothesAddServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -57,7 +47,7 @@ public class ClothingDetailsView {
         return price;
     }
 
-    public ClothingDetailsView setPrice(BigDecimal price) {
+    public ClothesAddServiceModel setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -66,17 +56,25 @@ public class ClothingDetailsView {
         return description;
     }
 
-    public ClothingDetailsView setDescription(String description) {
+    public ClothesAddServiceModel setDescription(String description) {
         this.description = description;
         return this;
     }
 
+    public BrandEntity getBrand() {
+        return brand;
+    }
+
+    public ClothesAddServiceModel setBrand(BrandEntity brand) {
+        this.brand = brand;
+        return this;
+    }
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public ClothingDetailsView setImageUrl(String imageUrl) {
+    public ClothesAddServiceModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

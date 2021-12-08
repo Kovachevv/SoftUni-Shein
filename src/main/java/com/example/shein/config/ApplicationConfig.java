@@ -12,22 +12,6 @@ import java.util.Map;
 @Configuration
 public class ApplicationConfig {
 
-    private final CloudinaryConfig config;
-
-    public ApplicationConfig(CloudinaryConfig config) {
-        this.config = config;
-    }
-
-    @Bean
-    public Cloudinary cloudinary() {
-        return new Cloudinary(
-                Map.of(
-                        "cloud_name", config.getCloudName(),
-                        "api_key", config.getApiKey(),
-                        "api_secret", config.getApiSecret()
-                )
-        );
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

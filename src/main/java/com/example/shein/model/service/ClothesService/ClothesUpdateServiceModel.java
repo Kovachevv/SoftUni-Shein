@@ -1,4 +1,4 @@
-package com.example.shein.model.view;
+package com.example.shein.model.service.ClothesService;
 
 import com.example.shein.model.entity.BrandEntity;
 
@@ -6,49 +6,28 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
-public class ClothingDetailsView {
+public class ClothesUpdateServiceModel {
 
     private Long id;
     private String name;
     private BigDecimal price;
     private String description;
-    private String brand;
-    private boolean canDelete;
-
-    public boolean isCanDelete() {
-        return canDelete;
-    }
-
-    public ClothingDetailsView setCanDelete(boolean canDelete) {
-        this.canDelete = canDelete;
-        return this;
-    }
+    private String imageUrl;
 
     public Long getId() {
         return id;
     }
 
-    public ClothingDetailsView setId(Long id) {
+    public ClothesUpdateServiceModel setId(Long id) {
         this.id = id;
         return this;
     }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public ClothingDetailsView setBrand(String brand) {
-        this.brand = brand;
-        return this;
-    }
-
-    private String imageUrl;
 
     public String getName() {
         return name;
     }
 
-    public ClothingDetailsView setName(String name) {
+    public ClothesUpdateServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -57,7 +36,7 @@ public class ClothingDetailsView {
         return price;
     }
 
-    public ClothingDetailsView setPrice(BigDecimal price) {
+    public ClothesUpdateServiceModel setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
@@ -66,17 +45,16 @@ public class ClothingDetailsView {
         return description;
     }
 
-    public ClothingDetailsView setDescription(String description) {
+    public ClothesUpdateServiceModel setDescription(String description) {
         this.description = description;
         return this;
     }
-
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public ClothingDetailsView setImageUrl(String imageUrl) {
+    public ClothesUpdateServiceModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

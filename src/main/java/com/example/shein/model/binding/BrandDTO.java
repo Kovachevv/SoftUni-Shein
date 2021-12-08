@@ -7,6 +7,7 @@ public class BrandDTO {
 
     private Long id;
     @Size(min=3, max=20)
+    @NotNull
     private String name;
     @NotNull
     @Size(min=3)

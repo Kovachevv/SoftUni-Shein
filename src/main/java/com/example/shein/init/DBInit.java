@@ -11,15 +11,21 @@ public class DBInit implements CommandLineRunner {
 
 
     private final UserService userService;
+    private final ClothingService clothingService;
+    private final BrandService brandService;
 
 
-    public DBInit(UserService userService) {
+    public DBInit(UserService userService, ClothingService clothingService, BrandService brandService) {
         this.userService = userService;
-
+        this.clothingService = clothingService;
+        this.brandService = brandService;
     }
 
     @Override
     public void run(String... args) throws Exception {
         userService.initUsersAndRoles();
+        brandService.initBrands();
+        clothingService.initClothes();
+
     }
 }
