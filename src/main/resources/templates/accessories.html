@@ -10,11 +10,11 @@
 
 </div>
 <div class="container">
-    <h2 class="text-center text-white m-3">All Brands</h2>
+    <h2 class="text-center text-white m-3">All Accessories</h2>
     <div class='row mb-4 d-flex justify-content-around'>
-        <div th:each="shoe : ${shoes}" th:object="${shoe}"
+        <div th:each="a : ${AllAccessories}" th:object="${a}"
              class="brand-section col-md-5 mr-auto d-flex flex-column">
-            <a th:href="@{/shoes/details/{id}(id=*{id})}">
+            <a th:href="@{/accessories/details/{id}(id=*{id})}">
                 <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Brand image">
             </a>
             <h2>

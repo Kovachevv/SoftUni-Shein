@@ -1,8 +1,6 @@
 package com.example.shein.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -15,6 +13,10 @@ public class AccessoryEntity extends BaseEntity{
     private BigDecimal price;
     @Column(columnDefinition = "TEXT",nullable = false)
     private String description;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private BrandEntity brand;
+    @Column(nullable = false)
+    private String imageUrl;
 
     public AccessoryEntity() {
     }
@@ -43,6 +45,24 @@ public class AccessoryEntity extends BaseEntity{
 
     public AccessoryEntity setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public BrandEntity getBrand() {
+        return brand;
+    }
+
+    public AccessoryEntity setBrand(BrandEntity brand) {
+        this.brand = brand;
+        return this;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public AccessoryEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
         return this;
     }
 }

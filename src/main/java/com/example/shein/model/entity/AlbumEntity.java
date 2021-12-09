@@ -1,9 +1,6 @@
 package com.example.shein.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -11,23 +8,34 @@ import java.time.LocalDate;
 public class AlbumEntity extends BaseEntity{
 
     @Column(nullable = false)
-    private LocalDate releaseDate;
-    @ManyToOne
+    private String name;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private ArtistEntity artist;
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
+    private String imageUrl;
 
     public AlbumEntity() {
     }
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public AlbumEntity setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
+    public AlbumEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
         return this;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public AlbumEntity setName(String name) {
+        this.name = name;
+        return this;
+    }
+
 
     public ArtistEntity getArtist() {
         return artist;

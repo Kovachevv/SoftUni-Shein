@@ -20,6 +20,8 @@ public class BrandEntity extends BaseEntity{
     private Set<ClothingEntity> clothes;
     @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<ShoeEntity> shoes;
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<AccessoryEntity> accessories;
 
     public Set<ShoeEntity> getShoes() {
         return shoes;

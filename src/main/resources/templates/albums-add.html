@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head::head"></head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    Navbar
+</div>
+
+
+<div class="container">
+    <h2 class="text-center text-white">Add a Brand</h2>
+    <form th:action="@{/albums/add}" th:method="POST" th:object="${AlbumDTO}"
+          class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
+        <div class="row">
+            <div class="form-group">
+                <label class="text-white font-weight-bold" for="name">Name</label>
+                <input th:field="*{name}" th:errorclass="is-invalid" name="name"
+                       id="name" type="text" class="form-control"
+                       placeholder="Put brand name here">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Brand name is required.
+                </p>
+            </div>
+            <div class="form-group">
+                <label class="text-white font-weight-bold" for="description">Description</label>
+                <input th:field="*{description}" th:errorclass="is-invalid" name="description"
+                       id="description" type="text" class="form-control"
+                       placeholder="Put brand description here">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Brand description is required.
+                </p>
+            </div>
+            <div class="form-group">
+                <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
+                <input th:field="*{imageUrl}" th:errorclass="is-invalid" name="imageUrl"
+                       id="imageUrl" type="url" class="form-control"
+                       placeholder="Put vehicle image URL here">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Brand image URL is required.
+                </p>
+            </div>
+
+            <div class="form-group col-md-6 mb-3">
+                <label class="text-center text-white font-weight-bold">Clothing</label>
+                <select th:errorclass="is-invalid"
+                        id="artistId"
+                        name="artistId"
+                        class="form-control">
+                    <option value="">- Select a brand -</option>
+                    <!-- <optgroup th:each="brand : ${clothingBrands}" th:label="${brand.name}" label="Brand name">-->
+                    <option th:each="artist : ${allArtists}"
+                            th:text="${artist.name}"
+                            th:value="${artist.id}"
+                            th:selected="${artist.id} == *{artistId}">Brand
+                    </option>
+                    <!--       </optgroup>-->
+                </select>
+                <p class="errors alert alert-danger invalid-feedback">
+                    Clothing name is required.
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="button-holder d-flex">
+                        <input type="submit" class="btn btn-info btn-lg" value="Submit Clothing"/>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+
+<div>
+    <footer></footer>
+</div>
+
+</body>
+</html>

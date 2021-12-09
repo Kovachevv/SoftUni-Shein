@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head::head"></head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    Navbar
+</div>
+
+
+<div class="container">
+    <h2 class="text-center text-white">Add an Artist</h2>
+    <form th:action="@{/artists/add}" th:method="POST" th:object="${ArtistDTO}"
+          class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
+        <div class="row">
+            <div class="form-group">
+                <label class="text-white font-weight-bold" for="name">Name</label>
+                <input th:field="*{name}" th:errorclass="is-invalid" name="name"
+                       id="name" type="text" class="form-control"
+                       placeholder="Put artist name here">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Artist name is required.
+                </p>
+            </div>
+            <div class="form-group">
+                <label class="text-white font-weight-bold" for="description">Description</label>
+                <input th:field="*{description}" th:errorclass="is-invalid" name="description"
+                       id="description" type="text" class="form-control"
+                       placeholder="Put artist description here">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Artist description is required.
+                </p>
+            </div>
+        <div class="form-group">
+            <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
+            <input th:field="*{imageUrl}" th:errorclass="is-invalid" name="imageUrl"
+                    id="imageUrl" type="url" class="form-control"
+                   placeholder="Put artist image URL here">
+            <p class="errors alert alert-danger invalid-feedback">
+                Artist image URL is required.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col col-md-4">
+                <div class="button-holder d-flex">
+                    <input type="submit" class="btn btn-info btn-lg" value="Submit Artist"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <footer></footer>
+</div>
+
+</body>
+</html>

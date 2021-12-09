@@ -1,0 +1,36 @@
+package com.example.shein.model.view;
+
+
+public class AlbumViewModel {
+
+    private Long id;
+    private String name;
+    private String imageUrl;
+
+    public Long getId() {
+        return id;
+    }
+
+    public AlbumViewModel setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public AlbumViewModel setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public AlbumViewModel setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+}

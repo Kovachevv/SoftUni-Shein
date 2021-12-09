@@ -1,9 +1,6 @@
 package com.example.shein.init;
 
-import com.example.shein.service.BrandService;
-import com.example.shein.service.ClothingService;
-import com.example.shein.service.ShoeService;
-import com.example.shein.service.UserService;
+import com.example.shein.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +12,19 @@ public class DBInit implements CommandLineRunner {
     private final ClothingService clothingService;
     private final BrandService brandService;
     private final ShoeService shoeService;
+    private final AccessoryService accessoryService;
+    private final ArtistService artistService;
+    private final AlbumService albumService;
 
 
-    public DBInit(UserService userService, ClothingService clothingService, BrandService brandService, ShoeService shoeService) {
+    public DBInit(UserService userService, ClothingService clothingService, BrandService brandService, ShoeService shoeService, AccessoryService accessoryService, ArtistService artistService, AlbumService albumService) {
         this.userService = userService;
         this.clothingService = clothingService;
         this.brandService = brandService;
         this.shoeService = shoeService;
+        this.accessoryService = accessoryService;
+        this.artistService = artistService;
+        this.albumService = albumService;
     }
 
     @Override
@@ -30,6 +33,8 @@ public class DBInit implements CommandLineRunner {
         brandService.initBrands();
         clothingService.initClothes();
         shoeService.initShoes();
-
+        accessoryService.initAccessories();
+        artistService.initArtists();
+        albumService.initAlbums();
     }
 }

@@ -12,13 +12,13 @@
 <div class="container">
     <h2 class="text-center text-white m-3">All Brands</h2>
     <div class='row mb-4 d-flex justify-content-around'>
-        <div th:each="shoe : ${shoes}" th:object="${shoe}"
+        <div th:each="artist : ${artists}" th:object="${artist}"
              class="brand-section col-md-5 mr-auto d-flex flex-column">
-            <a th:href="@{/shoes/details/{id}(id=*{id})}">
-                <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Brand image">
+            <a th:href="@{/artists/details/{id}(id=*{id})}">
+                <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Artist image">
             </a>
             <h2>
-                <span th:text="*{brand +' '+ name}">Shoe name</span>
+                <span th:text="*{name}">Artist name</span>
             </h2>
         </div>
     </div>
