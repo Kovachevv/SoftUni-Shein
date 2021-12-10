@@ -11,7 +11,6 @@ public class ClothesAddServiceModel {
     private Long id;
     private Long brandId;
     private String name;
-    private BigDecimal price;
     private String description;
     private BrandEntity brand;
     private String imageUrl;
@@ -43,14 +42,7 @@ public class ClothesAddServiceModel {
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
 
-    public ClothesAddServiceModel setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getDescription() {
         return description;

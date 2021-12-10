@@ -4,6 +4,7 @@ import com.example.shein.model.entity.BrandEntity;
 
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
@@ -12,17 +13,15 @@ import java.math.BigDecimal;
 public class ClothesDTO {
 
     private Long id;
-    private Long brandId;
     @NotNull
+    private Long brandId;
+    @NotBlank
     @Size(min=3)
     private String name;
-    @Positive
-    @NotNull
-    private BigDecimal price;
-    @NotNull
+    @NotBlank
     @Size(min = 10)
     private String description;
-    @NotNull
+    @NotBlank
     private String imageUrl;
 
     public Long getId() {
@@ -52,14 +51,6 @@ public class ClothesDTO {
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ClothesDTO setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getDescription() {
         return description;

@@ -6,7 +6,6 @@ public class AccessoryDetailsViewModel {
 
     private Long id;
     private String name;
-    private BigDecimal price;
     private String description;
     private String brand;
     private boolean canDelete;
@@ -30,14 +29,7 @@ public class AccessoryDetailsViewModel {
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
 
-    public AccessoryDetailsViewModel setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getDescription() {
         return description;

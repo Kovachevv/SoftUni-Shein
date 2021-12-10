@@ -56,10 +56,10 @@ public class AccessoryServiceImpl implements AccessoryService {
             BrandEntity nike = brandRepository.findByName("Nike").orElseThrow(IllegalArgumentException::new);
             BrandEntity adidas = brandRepository.findByName("Adidas").orElseThrow(IllegalArgumentException::new);
             AccessoryEntity sportsHeritage = new AccessoryEntity();
-            sportsHeritage.setBrand(nike).setName("Sportswear Heritage").setPrice(BigDecimal.valueOf(27.95)).setImageUrl("https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7ee3000-8ff9-4955-8dd5-2aec869d12af/sportswear-heritage-winterized-backpack-x1t0l4.png").setDescription("The Nike Sportswear Heritage Backpack features reinforced panels to help protect your gear from the elements. Oversized pulls allow you to open up your pack with gloves so you can keep moving even when it feels like the world is frozen solid.");
+            sportsHeritage.setBrand(nike).setName("Sportswear Heritage").setImageUrl("https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7ee3000-8ff9-4955-8dd5-2aec869d12af/sportswear-heritage-winterized-backpack-x1t0l4.png").setDescription("The Nike Sportswear Heritage Backpack features reinforced panels to help protect your gear from the elements. Oversized pulls allow you to open up your pack with gloves so you can keep moving even when it feels like the world is frozen solid.");
 
             AccessoryEntity faceCover = new AccessoryEntity();
-            faceCover.setBrand(adidas).setName("Face Cover").setPrice(BigDecimal.valueOf(16)).setImageUrl("https://static.footshop.com/487054/104458.jpg").setDescription("Phone, keys, wallet and face mask. The new leaving-the-house essential, this adidas face cover makes it easy to practise healthy habits. The seamless inner panel and stretchy ear loops keep you comfortable every day.");
+            faceCover.setBrand(adidas).setName("Face Cover").setImageUrl("https://static.footshop.com/487054/104458.jpg").setDescription("Phone, keys, wallet and face mask. The new leaving-the-house essential, this adidas face cover makes it easy to practise healthy habits. The seamless inner panel and stretchy ear loops keep you comfortable every day.");
 
             accessoryRepository.saveAll(List.of(sportsHeritage,faceCover));
 
@@ -104,8 +104,9 @@ public class AccessoryServiceImpl implements AccessoryService {
 
         AccessoryEntity accessoryEntity = accessoryRepository.findById(serviceModel.getId()).orElseThrow(()->
                 new ObjectNotFoundException("Accessory with id " + serviceModel.getId() + " not found!"));
-                accessoryEntity.setName(serviceModel.getName()).setPrice(serviceModel.getPrice()).setImageUrl(serviceModel.getImageUrl()).
+                accessoryEntity.setName(serviceModel.getName()).setImageUrl(serviceModel.getImageUrl()).
                  setDescription(serviceModel.getDescription());
+
                 accessoryRepository.save(accessoryEntity);
 
     }

@@ -1,24 +1,21 @@
-package com.example.shein.model.binding;
+package com.example.shein.model.binding.AccessoryDTO;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
-import java.math.BigDecimal;
 
 public class AccessoryDTO {
 
     private Long id;
-    private Long brandId;
     @NotNull
+    private Long brandId;
+    @NotBlank
     @Size(min=3)
     private String name;
-    @Positive
-    @NotNull
-    private BigDecimal price;
-    @NotNull
+    @NotBlank
     @Size(min = 3)
     private String description;
-    @NotNull
+    @NotBlank
     private String imageUrl;
 
     public Long getId() {
@@ -45,15 +42,6 @@ public class AccessoryDTO {
 
     public AccessoryDTO setName(String name) {
         this.name = name;
-        return this;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public AccessoryDTO setPrice(BigDecimal price) {
-        this.price = price;
         return this;
     }
 

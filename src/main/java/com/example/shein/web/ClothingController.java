@@ -65,7 +65,7 @@ public class ClothingController {
             redirectAttributes.addFlashAttribute("ClothesDTO", clothesDTO)
                     .addFlashAttribute("org.springframework.validation.BindingResult.ClothesDTO", bindingResult)
                     .addFlashAttribute("clothingBrands", brandService.getAllBrands());
-            return "clothes-add";
+            return "redirect:/clothes/add";
         }
 
         ClothesAddServiceModel clothesAddServiceModel = modelMapper.map(clothesDTO, ClothesAddServiceModel.class);

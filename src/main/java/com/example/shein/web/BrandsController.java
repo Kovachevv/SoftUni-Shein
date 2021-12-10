@@ -62,7 +62,7 @@ public class BrandsController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("BrandDTO", brandDTO)
                     .addFlashAttribute("org.springframework.validation.BindingResult.BrandDTO", bindingResult);
-            return "brand-add";
+            return "redirect:/brands/add";
         }
 
         BrandAddServiceModel brandAddServiceModel = modelMapper.map(brandDTO, BrandAddServiceModel.class);

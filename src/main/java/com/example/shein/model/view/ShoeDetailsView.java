@@ -6,7 +6,6 @@ public class ShoeDetailsView {
 
     private Long id;
     private String name;
-    private BigDecimal price;
     private String description;
     private String brand;
     private boolean canDelete;
@@ -39,14 +38,6 @@ public class ShoeDetailsView {
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ShoeDetailsView setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getDescription() {
         return description;

@@ -1,12 +1,10 @@
 package com.example.shein.web;
 
-import com.example.shein.model.binding.AlbumDTO;
-import com.example.shein.model.binding.ClothesDTO;
+import com.example.shein.model.binding.AlbumDTO.AlbumDTO;
+import com.example.shein.model.binding.AlbumDTO.AlbumUpdateBindingModel;
 import com.example.shein.model.service.AlbumService.AlbumAddServiceModel;
 import com.example.shein.model.service.AlbumService.AlbumUpdateServiceModel;
-import com.example.shein.model.service.ClothesService.ClothesUpdateServiceModel;
 import com.example.shein.model.view.AlbumDetailsViewModel;
-import com.example.shein.model.view.ClothingDetailsView;
 import com.example.shein.service.AlbumService;
 import com.example.shein.service.ArtistService;
 import com.example.shein.service.impl.SheinUser;
@@ -67,7 +65,7 @@ public class AlbumController {
             redirectAttributes.addFlashAttribute("AlbumDTO", albumDTO)
                     .addFlashAttribute("org.springframework.validation.BindingResult.AlbumDTO", bindingResult)
                     .addFlashAttribute("allArtists", artistService.getAllArtists());
-            return "albums-add";
+            return "redirect:/albums/add";
         }
 
         AlbumAddServiceModel serviceModel = modelMapper.map(albumDTO, AlbumAddServiceModel.class);
@@ -106,19 +104,19 @@ public class AlbumController {
     @PatchMapping("/{id}/edit")
     public String editAlbum(
             @PathVariable Long id,
-            @Valid AlbumDTO albumDTO,
+            @Valid AlbumUpdateBindingModel albumUpdateBindingModel,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes) throws ObjectNotFoundException {
 
         if (bindingResult.hasErrors()) {
 
-            redirectAttributes.addFlashAttribute("albumDTO", albumDTO);
+            redirectAttributes.addFlashAttribute("albumDTO", albumUpdateBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.albumDTO", bindingResult);
 
             return "redirect:/albums/edit/" + id + "/errors";
         }
 
-        AlbumUpdateServiceModel serviceModel = modelMapper.map(albumDTO,
+        AlbumUpdateServiceModel serviceModel = modelMapper.map(albumUpdateBindingModel,
                 AlbumUpdateServiceModel.class);
         serviceModel.setId(id);
 

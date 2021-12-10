@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -14,13 +15,13 @@ public class ArtistDTO {
 
 
     private Long id;
-    @NotNull
+    @NotBlank
     @Size(min =3)
     private String name;
-    @NotNull
+    @NotBlank
     @Size(min = 10)
     private String description;
-    @NotNull
+    @NotBlank
     private String imageUrl;
     private Set<AlbumEntity> albums;
 

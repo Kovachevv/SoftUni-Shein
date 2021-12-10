@@ -64,7 +64,7 @@ public class ArtistController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("ArtistDTO", artistDTO)
                     .addFlashAttribute("org.springframework.validation.BindingResult.ArtistDTO", bindingResult);
-            return "artists-add";
+            return "redirect:/artists/add";
         }
 
         ArtistAddServiceModel artistAddServiceModel = modelMapper.map(artistDTO, ArtistAddServiceModel.class);

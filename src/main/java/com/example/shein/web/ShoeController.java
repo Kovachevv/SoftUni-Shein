@@ -67,7 +67,7 @@ public class ShoeController {
             redirectAttributes.addFlashAttribute("ShoesDTO", shoeDTO)
                     .addFlashAttribute("org.springframework.validation.BindingResult.ShoesDTO", bindingResult)
                     .addFlashAttribute("shoeBrands", brandService.getAllBrands());
-            return "clothes-add";
+            return "redirect:/shoes/add";
         }
 
         ShoeAddServiceModel serviceModel = modelMapper.map(shoeDTO, ShoeAddServiceModel.class);
@@ -78,7 +78,7 @@ public class ShoeController {
 
     @PreAuthorize("isAdmin(#id)")
     @DeleteMapping("/{id}")
-    public String deleteClothing(@PathVariable Long id, Principal principal) {
+    public String deleteShoe(@PathVariable Long id, Principal principal) {
 
         shoeService.deleteShoe(id);
 

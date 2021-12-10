@@ -8,7 +8,6 @@ public class ClothingSummaryView {
 
     private Long id;
     private String name;
-    private BigDecimal price;
     private String brand;
     private String imageUrl;
 
@@ -38,16 +37,6 @@ public class ClothingSummaryView {
         this.name = name;
         return this;
     }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ClothingSummaryView setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
-
 
 
     public String getImageUrl() {

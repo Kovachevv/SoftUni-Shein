@@ -82,15 +82,15 @@ public class ClothingServiceImpl implements ClothingService {
             BrandEntity theNorthFace = brandRepository.findByName("The North Face").orElseThrow(IllegalArgumentException::new);*/
 
             ClothingEntity clothingEntity = new ClothingEntity();
-            clothingEntity.setName("Club Tee").setPrice(BigDecimal.valueOf(18.95)).setImageUrl("https://static.footshop.com/445450/37485.jpg").
+            clothingEntity.setName("Club Tee").setImageUrl("https://static.footshop.com/445450/37485.jpg").
                     setBrand(nike).setDescription("100% Cotton - A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.");
 
             ClothingEntity clothingEntity1 = new ClothingEntity();
-            clothingEntity1.setName("Fleece Pullover Hoodie").setPrice(BigDecimal.valueOf(49.95)).setImageUrl("https://static.footshop.com/411985/85273.jpg").
+            clothingEntity1.setName("Fleece Pullover Hoodie").setImageUrl("https://static.footshop.com/411985/85273.jpg").
                     setBrand(nike).setDescription("80% Cotton - A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.");
 
             ClothingEntity clothingEntity2 = new ClothingEntity();
-            clothingEntity2.setName("Joggers BB").setPrice(BigDecimal.valueOf(39.95)).setImageUrl("https://static.footshop.com/602353/115462.jpg").
+            clothingEntity2.setName("Joggers BB").setImageUrl("https://static.footshop.com/602353/115462.jpg").
                     setBrand(nike).setDescription("80% Cotton - A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.\n" +
                     "        //20% Polyester - a very strong synthetic fiber that boasts high heat resistance and excellent odor absorption");
 
@@ -115,7 +115,7 @@ public class ClothingServiceImpl implements ClothingService {
         ClothingEntity clothingEntity = clothingRepository.findById(serviceModel.getId()).orElseThrow(() ->
                 new ObjectNotFoundException("Clothing with id " + serviceModel.getId() + " not found!"));
 
-        clothingEntity.setName(serviceModel.getName()).setPrice(serviceModel.getPrice()).setImageUrl(serviceModel.getImageUrl()).
+        clothingEntity.setName(serviceModel.getName()).setImageUrl(serviceModel.getImageUrl()).
                 setDescription(serviceModel.getDescription());
             clothingRepository.save(clothingEntity);
 

@@ -1,5 +1,6 @@
 package com.example.shein.model.binding;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -7,12 +8,12 @@ public class BrandDTO {
 
     private Long id;
     @Size(min=3, max=20)
-    @NotNull
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
     @Size(min=3)
     private String description;
-    @NotNull
+    @NotBlank
     private String imageUrl;
 
     public Long getId() {

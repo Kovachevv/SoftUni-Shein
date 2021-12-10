@@ -1,39 +1,26 @@
-package com.example.shein.model.binding;
+package com.example.shein.model.binding.AccessoryDTO;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
-public class AlbumDTO {
-
+public class AccessoryUpdateBindingModel {
 
     private Long id;
-    private Long artistId;
-    @NotNull
-    @Size(min=2, max=30)
+    @NotBlank
+    @Size(min=3)
     private String name;
-    @NotNull
-    @Size(min=10)
+    @NotBlank
+    @Size(min = 3)
     private String description;
-    @NotNull
+    @NotBlank
     private String imageUrl;
-
-    public Long getArtistId() {
-        return artistId;
-    }
-
-    public AlbumDTO setArtistId(Long artistId) {
-        this.artistId = artistId;
-        return this;
-    }
 
     public Long getId() {
         return id;
     }
 
-    public AlbumDTO setId(Long id) {
+    public AccessoryUpdateBindingModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -42,7 +29,7 @@ public class AlbumDTO {
         return name;
     }
 
-    public AlbumDTO setName(String name) {
+    public AccessoryUpdateBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -51,7 +38,7 @@ public class AlbumDTO {
         return description;
     }
 
-    public AlbumDTO setDescription(String description) {
+    public AccessoryUpdateBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -60,9 +47,8 @@ public class AlbumDTO {
         return imageUrl;
     }
 
-    public AlbumDTO setImageUrl(String imageUrl) {
+    public AccessoryUpdateBindingModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }
-
 }

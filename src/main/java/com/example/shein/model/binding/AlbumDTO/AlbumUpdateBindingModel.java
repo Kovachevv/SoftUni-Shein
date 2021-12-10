@@ -1,21 +1,17 @@
-package com.example.shein.model.binding;
+package com.example.shein.model.binding.AlbumDTO;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
-import java.math.BigDecimal;
 
-public class ShoeDTO {
+public class AlbumUpdateBindingModel {
 
     private Long id;
-    @NotNull
-    private Long brandId;
     @NotBlank
-    @Size(min=3)
+    @Size(min=2, max=30)
     private String name;
     @NotBlank
-    @Size(min = 10)
+    @Size(min=10)
     private String description;
     @NotBlank
     private String imageUrl;
@@ -24,17 +20,8 @@ public class ShoeDTO {
         return id;
     }
 
-    public ShoeDTO setId(Long id) {
+    public AlbumUpdateBindingModel setId(Long id) {
         this.id = id;
-        return this;
-    }
-
-    public Long getBrandId() {
-        return brandId;
-    }
-
-    public ShoeDTO setBrandId(Long brandId) {
-        this.brandId = brandId;
         return this;
     }
 
@@ -42,7 +29,7 @@ public class ShoeDTO {
         return name;
     }
 
-    public ShoeDTO setName(String name) {
+    public AlbumUpdateBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -51,7 +38,7 @@ public class ShoeDTO {
         return description;
     }
 
-    public ShoeDTO setDescription(String description) {
+    public AlbumUpdateBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -60,7 +47,7 @@ public class ShoeDTO {
         return imageUrl;
     }
 
-    public ShoeDTO setImageUrl(String imageUrl) {
+    public AlbumUpdateBindingModel setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
         return this;
     }

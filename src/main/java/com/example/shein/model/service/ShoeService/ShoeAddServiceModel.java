@@ -9,7 +9,7 @@ public class ShoeAddServiceModel {
     private Long id;
     private Long brandId;
     private String name;
-    private BigDecimal price;
+
     private String description;
     private BrandEntity brand;
     private String imageUrl;
@@ -38,15 +38,6 @@ public class ShoeAddServiceModel {
 
     public ShoeAddServiceModel setName(String name) {
         this.name = name;
-        return this;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ShoeAddServiceModel setPrice(BigDecimal price) {
-        this.price = price;
         return this;
     }
 

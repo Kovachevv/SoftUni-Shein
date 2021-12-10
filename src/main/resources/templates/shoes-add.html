@@ -11,71 +11,60 @@
 
 
 <div class="container">
-    <h2 class="text-center text-white">Add a Brand</h2>
+    <h2 class="text-center text-white">Add a Shoe</h2>
     <form th:action="@{/shoes/add}" th:method="POST" th:object="${ShoesDTO}"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="row">
-            <div class="form-group">
+            <div class="form-group col-md-6 mb-3">
                 <label class="text-white font-weight-bold" for="name">Name</label>
                 <input th:field="*{name}" th:errorclass="is-invalid" name="name"
                        id="name" type="text" class="form-control"
-                       placeholder="Put brand name here">
+                       placeholder="Put shoe name here">
                 <p class="errors alert alert-danger invalid-feedback">
-                    Brand name is required.
+                    Shoe name is required.
                 </p>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 mb-3">
                 <label class="text-white font-weight-bold" for="description">Description</label>
                 <input th:field="*{description}" th:errorclass="is-invalid" name="description"
                        id="description" type="text" class="form-control"
-                       placeholder="Put brand description here">
+                       placeholder="Put shoe description here">
                 <p class="errors alert alert-danger invalid-feedback">
-                    Brand description is required.
+                    Shoe description is required.
                 </p>
             </div>
-        <div class="form-group">
-            <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
-            <input th:field="*{imageUrl}" th:errorclass="is-invalid" name="imageUrl"
-                    id="imageUrl" type="url" class="form-control"
-                   placeholder="Put vehicle image URL here">
-            <p class="errors alert alert-danger invalid-feedback">
-                Brand image URL is required.
-            </p>
         </div>
+        <div class="row">
             <div class="form-group col-md-6 mb-3">
-                <label for="price" class="text-white font-weight-bold">Price</label>
-                <input th:field="*{price}" th:errorclass="is-invalid" name="price"
-                       id="price" type="number" min="1" class="form-control"
-                       placeholder="Suggested price"/>
+                <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
+                <input th:field="*{imageUrl}" th:errorclass="is-invalid" name="imageUrl"
+                       id="imageUrl" type="url" class="form-control"
+                       placeholder="Put Shoe image URL here">
                 <p class="errors alert alert-danger invalid-feedback">
-                    Price is required.
+                    Shoe image URL is required.
                 </p>
             </div>
             <div class="form-group col-md-6 mb-3">
-                <label class="text-center text-white font-weight-bold">Clothing</label>
+                <label class="text-center text-white font-weight-bold">Brand</label>
                 <select th:errorclass="is-invalid"
                         id="brandId"
                         name="brandId"
                         class="form-control">
                     <option value="">- Select a brand -</option>
-                        <option th:each="brand : ${shoeBrands}"
-                                th:text="${brand.name}"
-                                th:value="${brand.id}"
-                                th:selected="${brand.id} == *{brandId}">Brand
-                        </option>
-             <!--       </optgroup>-->
+                    <option th:each="brand : ${shoeBrands}"
+                            th:text="${brand.name}"
+                            th:value="${brand.id}"
+                            th:selected="${brand.id} == *{brandId}">Brand
+                    </option>
                 </select>
                 <p class="errors alert alert-danger invalid-feedback">
-                    Clothing name is required.
+                    Shoe brand is required.
                 </p>
             </div>
+        </div>
 
-        <div class="row">
-            <div class="col col-md-4">
-                <div class="button-holder d-flex">
-                    <input type="submit" class="btn btn-info btn-lg" value="Submit Clothing"/>
-                </div>
-            </div>
+        <div style="text-align: center">
+            <input type="submit" class="btn btn-info btn-lg" value="Submit Shoe"/>
         </div>
     </form>
 </div>

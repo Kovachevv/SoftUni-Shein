@@ -6,7 +6,6 @@ public class AccessoryViewModel {
 
     private Long id;
     private String name;
-    private BigDecimal price;
     private String brand;
     private String imageUrl;
 
@@ -28,14 +27,7 @@ public class AccessoryViewModel {
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
 
-    public AccessoryViewModel setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getBrand() {
         return brand;

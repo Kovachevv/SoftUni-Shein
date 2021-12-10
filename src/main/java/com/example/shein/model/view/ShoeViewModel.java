@@ -6,7 +6,6 @@ public class ShoeViewModel {
 
     private Long id;
     private String name;
-    private BigDecimal price;
     private String brand;
     private String imageUrl;
 
@@ -25,15 +24,6 @@ public class ShoeViewModel {
 
     public ShoeViewModel setName(String name) {
         this.name = name;
-        return this;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ShoeViewModel setPrice(BigDecimal price) {
-        this.price = price;
         return this;
     }
 

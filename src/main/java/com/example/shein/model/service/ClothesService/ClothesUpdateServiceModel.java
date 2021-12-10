@@ -5,7 +5,7 @@ public class ClothesUpdateServiceModel {
 
     private Long id;
     private String name;
-    private BigDecimal price;
+
     private String description;
     private String imageUrl;
 
@@ -27,14 +27,6 @@ public class ClothesUpdateServiceModel {
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ClothesUpdateServiceModel setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getDescription() {
         return description;

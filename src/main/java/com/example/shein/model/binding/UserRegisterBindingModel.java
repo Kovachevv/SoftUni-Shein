@@ -8,23 +8,22 @@ import javax.validation.constraints.Size;
 public class UserRegisterBindingModel {
 
 
-    @NotNull
+    @NotBlank
     @Size(min=4, max=20)
     private String firstName;
-    @NotNull
+    @NotBlank
     @Size(min=4, max=20)
     private String lastName;
-    @NotNull
+    @NotBlank
     @Size(min=4, max=20)
     private String password;
-    @NotNull
+    @NotBlank
     @Size(min=4, max=20)
     private String confirmPassword;
     @NotBlank
     @Size(min=4, max=20)
-    @NotNull
     private String username;
-    @NotNull
+    @NotBlank
     @Email
     @Size(min=4, max=20)
     private String email;

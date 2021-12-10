@@ -10,8 +10,6 @@ public class ShoeEntity extends BaseEntity{
 
     @Column(nullable = false,unique = true)
     private String name;
-    @Column(nullable = false)
-    private BigDecimal price;
     @Column(columnDefinition = "TEXT")
     private String description;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -32,14 +30,6 @@ public class ShoeEntity extends BaseEntity{
         return this;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public ShoeEntity setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
 
     public String getDescription() {
         return description;

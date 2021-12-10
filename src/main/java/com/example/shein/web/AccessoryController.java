@@ -1,6 +1,7 @@
 package com.example.shein.web;
 
-import com.example.shein.model.binding.AccessoryDTO;
+import com.example.shein.model.binding.AccessoryDTO.AccessoryDTO;
+import com.example.shein.model.binding.AccessoryDTO.AccessoryUpdateBindingModel;
 import com.example.shein.model.service.AccessoryService.AccessoryAddServiceModel;
 import com.example.shein.model.service.AccessoryService.AccessoryUpdateServiceModel;
 import com.example.shein.model.view.AccessoryDetailsViewModel;
@@ -65,7 +66,7 @@ public class AccessoryController {
             redirectAttributes.addFlashAttribute("AccessoryDTO", accessoryDTO)
                     .addFlashAttribute("org.springframework.validation.BindingResult.AccessoryDTO", bindingResult)
                     .addFlashAttribute("accessoryBrands", brandService.getAllBrands());
-            return "accessories-add";
+            return "redirect:/accessories/add";
         }
 
         AccessoryAddServiceModel accessoryAddServiceModel = modelMapper.map(accessoryDTO, AccessoryAddServiceModel.class);
@@ -88,6 +89,7 @@ public class AccessoryController {
                                @AuthenticationPrincipal SheinUser currentUser) {
 
         AccessoryDetailsViewModel accessoryDetailsViewModel = accessoryService.findById(id, currentUser.getUserIdentifier());
+
         AccessoryDTO accessoryModel = modelMapper.map(
                 accessoryDetailsViewModel,
                 AccessoryDTO.class
@@ -104,18 +106,18 @@ public class AccessoryController {
     @PatchMapping("/{id}/edit")
     public String editAccessory(
             @PathVariable Long id,
-            @Valid AccessoryDTO accessoryDTO,
+            @Valid AccessoryUpdateBindingModel accessoryUpdateBindingModel,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes) throws ObjectNotFoundException {
 
         if (bindingResult.hasErrors()) {
 
-            redirectAttributes.addFlashAttribute("AccessoryModel", accessoryDTO);
+            redirectAttributes.addFlashAttribute("AccessoryModel", accessoryUpdateBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.AccessoryModel", bindingResult);
 
             return "redirect:/accessories/edit/" + id + "/errors";
         }
-        AccessoryUpdateServiceModel serviceModel = modelMapper.map(accessoryDTO,
+        AccessoryUpdateServiceModel serviceModel = modelMapper.map(accessoryUpdateBindingModel,
                 AccessoryUpdateServiceModel.class);
         serviceModel.setId(id);
 
