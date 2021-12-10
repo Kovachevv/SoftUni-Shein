@@ -20,6 +20,7 @@ public class ClothesDTO {
     @NotNull
     private BigDecimal price;
     @NotNull
+    @Size(min = 10)
     private String description;
     @NotNull
     private String imageUrl;

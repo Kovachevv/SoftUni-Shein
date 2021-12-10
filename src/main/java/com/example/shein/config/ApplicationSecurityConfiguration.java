@@ -1,4 +1,5 @@
 package com.example.shein.config;
+import com.example.shein.model.enums.UserRoleEnum;
 import com.example.shein.service.impl.SheinUserServiceImpl;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +27,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
         http.authorizeRequests().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
 
                 antMatchers("/", "/users/login", "/users/register").
-                permitAll().
+                permitAll().antMatchers("/statistics").hasRole(UserRoleEnum.ADMIN.name()).
                 antMatchers("/**").
                 authenticated().
                 and().

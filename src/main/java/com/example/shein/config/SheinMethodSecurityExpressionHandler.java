@@ -25,7 +25,6 @@ public class SheinMethodSecurityExpressionHandler extends
         root.setPermissionEvaluator(getPermissionEvaluator());
         root.setTrustResolver(new AuthenticationTrustResolverImpl());
         root.setRoleHierarchy(getRoleHierarchy());
-
         return root;
 
     }

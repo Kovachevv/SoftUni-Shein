@@ -3,7 +3,8 @@ package com.example.shein.model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Set;
+import java.util.*;
+
 
 @Entity
 @Table(name = "brands")
@@ -16,27 +17,36 @@ public class BrandEntity extends BaseEntity{
     private String description;
     @Column(nullable = false)
     private String imageUrl;
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<ClothingEntity> clothes;
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<ShoeEntity> shoes;
-    @OneToMany(mappedBy = "brand", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<AccessoryEntity> accessories;
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<ClothingEntity> clothes = new ArrayList<>();
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<ShoeEntity> shoes = new ArrayList<>();
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<AccessoryEntity> accessories = new ArrayList<>();
 
-    public Set<ShoeEntity> getShoes() {
+    public List<ShoeEntity> getShoes() {
         return shoes;
     }
 
-    public BrandEntity setShoes(Set<ShoeEntity> shoes) {
+    public BrandEntity setShoes(List<ShoeEntity> shoes) {
         this.shoes = shoes;
         return this;
     }
 
-    public Set<ClothingEntity> getClothes() {
+    public List<AccessoryEntity> getAccessories() {
+        return accessories;
+    }
+
+    public BrandEntity setAccessories(List<AccessoryEntity> accessories) {
+        this.accessories = accessories;
+        return this;
+    }
+
+    public List<ClothingEntity> getClothes() {
         return clothes;
     }
 
-    public BrandEntity setClothes(Set<ClothingEntity> clothes) {
+    public BrandEntity setClothes(List<ClothingEntity> clothes) {
         this.clothes = clothes;
         return this;
     }

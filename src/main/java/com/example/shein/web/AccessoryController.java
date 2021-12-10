@@ -46,7 +46,7 @@ public class AccessoryController {
         model.addAttribute("accessoryDetails", this.accessoryService.findById(id,principal.getName()));
         return "accessories-details";
     }
-
+    @PreAuthorize("isAdmin(#id)")
    @GetMapping("/add")
     public String addAccessory(Model model) {
 
@@ -82,6 +82,7 @@ public class AccessoryController {
 
         return "redirect:/accessories/all";
     }
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/{id}/edit")
     public String editAccessory(@PathVariable Long id, Model model,
                                @AuthenticationPrincipal SheinUser currentUser) {

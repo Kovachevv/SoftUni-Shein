@@ -1,8 +1,7 @@
 package com.example.shein.service;
 
-import com.example.shein.model.entity.UserEntity;
-import com.example.shein.model.service.BrandAddServiceModel;
-import com.example.shein.model.service.BrandUpdateServiceModel;
+import com.example.shein.model.service.BrandService.BrandAddServiceModel;
+import com.example.shein.model.service.BrandService.BrandUpdateServiceModel;
 import com.example.shein.model.view.BrandDetailsViewModel;
 import com.example.shein.model.view.BrandViewModel;
 import javassist.tools.rmi.ObjectNotFoundException;

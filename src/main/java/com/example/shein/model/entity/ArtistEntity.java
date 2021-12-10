@@ -10,7 +10,7 @@ public class ArtistEntity extends BaseEntity{
     private String name;
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
-    @OneToMany(mappedBy = "artist", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<AlbumEntity> albums;
     private String imageUrl;
 

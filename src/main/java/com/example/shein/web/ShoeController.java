@@ -85,6 +85,7 @@ public class ShoeController {
         return "redirect:/shoes/all";
     }
 
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/{id}/edit")
     public String editShoe(@PathVariable Long id, Model model,
                                @AuthenticationPrincipal SheinUser currentUser) {

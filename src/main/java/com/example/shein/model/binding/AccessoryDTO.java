@@ -16,6 +16,7 @@ public class AccessoryDTO {
     @NotNull
     private BigDecimal price;
     @NotNull
+    @Size(min = 3)
     private String description;
     @NotNull
     private String imageUrl;

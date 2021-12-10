@@ -1,7 +1,4 @@
-package com.example.shein.model.service;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+package com.example.shein.model.service.BrandService;
 
 public class BrandUpdateServiceModel {
     private Long id;

@@ -43,7 +43,8 @@ public class UserController {
         if (bindingResult.hasErrors() || !userModel.getPassword().equals(userModel.getConfirmPassword())) {
             redirectAttributes.addFlashAttribute("userModel", userModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userModel", bindingResult);
-            return "redirect:/register";
+            redirectAttributes.addFlashAttribute("password_matching",!userModel.getPassword().equals(userModel.getConfirmPassword()));
+            return "redirect:/users/register";
         }
         UserRegisterServiceModel serviceModel =
                 modelMapper.map(userModel, UserRegisterServiceModel.class);
@@ -55,13 +56,10 @@ public class UserController {
 
 
 
-
-
     @GetMapping("/login")
     public String login(){
         return "login";
     }
-
 
     @PostMapping("/error-page")
     public String failedLogin(@ModelAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY) String username,

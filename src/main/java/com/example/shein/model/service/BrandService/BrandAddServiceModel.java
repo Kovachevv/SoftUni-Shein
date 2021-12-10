@@ -1,4 +1,4 @@
-package com.example.shein.model.service;
+package com.example.shein.model.service.BrandService;
 
 public class BrandAddServiceModel {
     private String name;

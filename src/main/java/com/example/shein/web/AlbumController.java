@@ -49,7 +49,7 @@ public class AlbumController {
         model.addAttribute("albumDetails", this.albumService.findById(id,principal.getName()));
         return "albums-details";
     }
-
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/add")
     public String addAlbum(Model model) {
 
@@ -84,7 +84,7 @@ public class AlbumController {
 
         return "redirect:/albums/all";
     }
-
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/{id}/edit")
     public String editAlbum(@PathVariable Long id, Model model,
                                @AuthenticationPrincipal SheinUser currentUser) {

@@ -1,5 +1,6 @@
 package com.example.shein.model.binding;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -24,6 +25,7 @@ public class UserRegisterBindingModel {
     @NotNull
     private String username;
     @NotNull
+    @Email
     @Size(min=4, max=20)
     private String email;
 

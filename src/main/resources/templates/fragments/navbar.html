@@ -1,65 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head></head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
 <body>
 
 <div th:fragment="navbar">
-
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="/"><img alt="shop picture" src="/images/car.png" class="logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto col-12 justify-content-between">
-        <li class="nav-item"
-        >
-          <a class="nav-link" href="/brands/all">All Brands</a>
-        </li>
-        <li  class="nav-item">
-          <a class="nav-link" href="/clothes/all">All Clothes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/shoes/all">All Shoes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/accessories/all">All Accessories</a>
-        </li>
-        <li  class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Admin
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/statistics">Statistics</a>
-            <a class="dropdown-item" href="/">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/">Something else here</a>
-          </div>
-        </li>
-
-        <li  class="nav-item">
-          <div class="form-inline my-2 my-lg-0 border px-3">
-            <div class="text-white">Welcome,</div>
-            <form th:action="@{/users/logout}" th:method="post">
-           <input class="btn btn-link nav-link" type="submit" value="Logout">
-            </form>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class= "nav-link" href="/users/register">Register</a>
-        </li>
-        <li  class="nav-item">
-          <a class="nav-link" href="/users/login">Login</a>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
-  <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg " style="transition: ease-in">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,39 +16,56 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/clothes/all">All Clothes</a>
+          <a class="nav-link" href="/clothes/all">Clothes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/brands/all">All Brands</a>
+          <a class="nav-link" href="/brands/all">Brands</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/shoes/all">All Shoes</a>
+          <a class="nav-link" href="/shoes/all">Shoes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/accessories/all">All Accessories</a>
+          <a class="nav-link" href="/accessories/all">Accessories</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/artists/all">All Artists</a>
+          <a class="nav-link" href="/artists/all">Artists</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/albums/all">All Albums</a>
+          <a class="nav-link" href="/albums/all">Albums</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Admin
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="/brands/add">Add a Brand</a>
+            <a class="dropdown-item" href="/clothes/add">Add a Clothing</a>
+            <a class="dropdown-item" href="/shoes/add">Add a Shoe</a>
+            <a class="dropdown-item" href="/accessories/add">Add an Accessory</a>
+            <a class="dropdown-item" href="/albums/add">Add an Album</a>
+            <a class="dropdown-item" href="/artists/add">Add an Artist</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="/statistics">Stats for nerds</a>
           </div>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+          <div class="form-inline my-2 my-lg-0 px-3">
+            <div class="text-white">Welcome, <th:block sec:authentication="name"></th:block>!</div>
+            <form th:action="@{/users/logout}" th:method="post">
+              <input class="btn btn-link nav-link" type="submit" value="Logout">
+            </form>
+          </div>
+        </li>
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+          <a class="nav-link" th:href="@{/users/register}">Register</a>
+        </li>
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+          <a class="nav-link" th:href="@{/users/login}">Login</a>
+        </li>
 
       </ul>
     </div>
 
   </nav>
-
 </div>
 
 </body>

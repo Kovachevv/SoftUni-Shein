@@ -3,7 +3,6 @@ package com.example.shein.web;
 import com.example.shein.model.binding.ArtistDTO;
 import com.example.shein.model.service.ArtistService.ArtistAddServiceModel;
 import com.example.shein.model.service.ArtistService.ArtistUpdateServiceModel;
-import com.example.shein.model.service.BrandAddServiceModel;
 import com.example.shein.model.view.ArtistDetailsViewModel;
 import com.example.shein.service.ArtistService;
 import com.example.shein.service.impl.SheinUser;
@@ -48,6 +47,7 @@ public class ArtistController {
     }
 
 
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/add")
     public String addArtist(Model model) {
 
@@ -83,6 +83,7 @@ public class ArtistController {
         return "redirect:/artists/all";
     }
 
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/{id}/edit")
     public String editArtist(@PathVariable Long id, Model model,
                             @AuthenticationPrincipal SheinUser currentUser) {

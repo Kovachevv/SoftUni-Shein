@@ -1,11 +1,8 @@
 package com.example.shein.web;
 
-import com.example.shein.model.binding.BrandDTO;
 import com.example.shein.model.binding.ClothesDTO;
-import com.example.shein.model.service.BrandUpdateServiceModel;
 import com.example.shein.model.service.ClothesService.ClothesAddServiceModel;
 import com.example.shein.model.service.ClothesService.ClothesUpdateServiceModel;
-import com.example.shein.model.view.BrandDetailsViewModel;
 import com.example.shein.model.view.ClothingDetailsView;
 import com.example.shein.service.BrandService;
 import com.example.shein.service.ClothingService;
@@ -77,6 +74,7 @@ public class ClothingController {
         return "redirect:/clothes/all";
     }
 
+
     @PreAuthorize("isAdmin(#id)")
     @DeleteMapping("/{id}")
     public String deleteClothing(@PathVariable Long id, Principal principal) {
@@ -86,6 +84,7 @@ public class ClothingController {
         return "redirect:/clothes/all";
     }
 
+    @PreAuthorize("isAdmin(#id)")
     @GetMapping("/{id}/edit")
     public String editClothing(@PathVariable Long id, Model model,
                             @AuthenticationPrincipal SheinUser currentUser) {
@@ -104,6 +103,7 @@ public class ClothingController {
         return "clothes-update";
     }
 
+    @PreAuthorize("isAdmin(#id)")
     @PatchMapping("/{id}/edit")
     public String editClothing(
             @PathVariable Long id,
