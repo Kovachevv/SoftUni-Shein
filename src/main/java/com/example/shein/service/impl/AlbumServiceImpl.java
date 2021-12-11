@@ -52,7 +52,15 @@ public class AlbumServiceImpl implements AlbumService {
             ye.setName("ye").setArtist(kanyeWest).setImageUrl("https://upload.wikimedia.org/wikipedia/en/7/74/Ye_album_cover.jpg").setDescription("Ye paints a vivid picture of Kanye's current state of self and, for as brief as it is, succeeds as an intimate exploration of family and mental health.");
             AlbumEntity astroworld = new AlbumEntity();
             astroworld.setName("Astroworld").setArtist(travisScott).setImageUrl("https://upload.wikimedia.org/wikipedia/en/0/0b/Astroworld_by_Travis_Scott.jpg").setDescription("Travis Scott continues pushing the psychedelic boundaries of trap on Astroworld, but doesn't quite stick the landing.");
-            albumRepository.saveAll(List.of(ye, astroworld));
+
+            AlbumEntity yeezus = new AlbumEntity();
+            yeezus.setName("Yeezus").setImageUrl("https://upload.wikimedia.org/wikipedia/en/0/03/Yeezus_album_cover.png").setArtist(kanyeWest).
+                    setDescription("On Yeezus, Chicago rapper and producer Kanye West takes his typically ambitious production down some really dark, noisy passageways.");
+
+            AlbumEntity birds = new AlbumEntity();
+            birds.setArtist(travisScott).setName("Birds in the Trap").setImageUrl("https://upload.wikimedia.org/wikipedia/en/6/61/Travis_Scott_-_Birds_in_the_Trap_Sing_McKnight.png").setDescription("Travis Scott returns with what sounds like an album of microwaved leftovers from his breakout record last year, Rodeo.");
+
+            albumRepository.saveAll(List.of(ye, astroworld,yeezus,birds));
 
 
         }

@@ -74,27 +74,48 @@ public class ClothingServiceImpl implements ClothingService {
 
             BrandEntity nike = brandRepository.findByName("Nike").orElseThrow(IllegalArgumentException::new);
             BrandEntity adidas = brandRepository.findByName("Adidas").orElseThrow(IllegalArgumentException::new);
-         /*   BrandEntity converse = brandRepository.findByName("Converse").orElseThrow(IllegalArgumentException::new);
+            BrandEntity converse = brandRepository.findByName("Converse").orElseThrow(IllegalArgumentException::new);
             BrandEntity jordan = brandRepository.findByName("Jordan").orElseThrow(IllegalArgumentException::new);
             BrandEntity vans = brandRepository.findByName("Vans").orElseThrow(IllegalArgumentException::new);
             BrandEntity puma = brandRepository.findByName("Puma").orElseThrow(IllegalArgumentException::new);
             BrandEntity reebok = brandRepository.findByName("Reebok").orElseThrow(IllegalArgumentException::new);
-            BrandEntity theNorthFace = brandRepository.findByName("The North Face").orElseThrow(IllegalArgumentException::new);*/
+            BrandEntity theNorthFace = brandRepository.findByName("The North Face").orElseThrow(IllegalArgumentException::new);
 
-            ClothingEntity clothingEntity = new ClothingEntity();
-            clothingEntity.setName("Club Tee").setImageUrl("https://static.footshop.com/445450/37485.jpg").
+            ClothingEntity clubTee = new ClothingEntity();
+            clubTee.setName("Club Tee").setImageUrl("https://static.footshop.com/445450/37485.jpg").
                     setBrand(nike).setDescription("100% Cotton - A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.");
 
-            ClothingEntity clothingEntity1 = new ClothingEntity();
-            clothingEntity1.setName("Fleece Pullover Hoodie").setImageUrl("https://static.footshop.com/411985/85273.jpg").
+            ClothingEntity pullOverHoodie = new ClothingEntity();
+            pullOverHoodie.setName("Fleece Pullover Hoodie").setImageUrl("https://static.footshop.com/411985/85273.jpg").
                     setBrand(nike).setDescription("80% Cotton - A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.");
 
-            ClothingEntity clothingEntity2 = new ClothingEntity();
-            clothingEntity2.setName("Joggers BB").setImageUrl("https://static.footshop.com/602353/115462.jpg").
+            ClothingEntity joggersBB = new ClothingEntity();
+            joggersBB.setName("Joggers BB").setImageUrl("https://static.footshop.com/602353/115462.jpg").
                     setBrand(nike).setDescription("80% Cotton - A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.\n" +
                     "        //20% Polyester - a very strong synthetic fiber that boasts high heat resistance and excellent odor absorption");
 
-            clothingRepository.saveAll(List.of(clothingEntity, clothingEntity1, clothingEntity2));
+            ClothingEntity threeStripesPants = new ClothingEntity();
+
+            threeStripesPants.setName("3-Stripes Pants").setImageUrl("https://static.footshop.com/489010/80728.jpg").setBrand(adidas).
+                    setDescription("Straightforwardly adidas. Keep your look low-key and legit in these pants. Contrast 3-Stripes and a Trefoil logo are as OG as it gets. Feel cosy and warm in fleece. Secure your stuff in zip pockets. And we're done here. Our cotton products support sustainable cotton farming. This product is also made with recycled content as part of our ambition to end plastic waste.");
+
+            ClothingEntity trefoilShirt= new ClothingEntity();
+
+            trefoilShirt.setName("Trefoil T-Shirt ").setImageUrl("https://static.footshop.com/585583/126220.jpg").setBrand(adidas).
+                    setDescription("The Trefoil logo is steeped in sport and style history. But it's about more than that. It represents a fearless energy and a clan of creators striving to be their best at every step. Slip into the comfort of this adidas t-shirt and show it off.");
+
+
+            ClothingEntity michelBasquiat = new ClothingEntity();
+
+            michelBasquiat.setName("Michel Basquiat Elevated Tee").setImageUrl("https://static.footshop.com/613243/166303.jpg").setBrand(converse).
+setDescription("A very soft and pleasant material whose properties include tensile strength and elongation at break. Unlike other materials, it does not get damaged easily when washed often.");
+
+            ClothingEntity jacket = new ClothingEntity();
+
+            jacket.setName("Telegraphic Coaches Jacket").setImageUrl("https://static.footshop.com/613657/71026.jpg").setBrand(theNorthFace).
+setDescription("Never a look to go out of style, the Telegraphic Coaches Jacket also happens to be durable enough to last the test of time. The material also blocks out wind and can handle a light shower or two.");
+
+            clothingRepository.saveAll(List.of(clubTee, pullOverHoodie, joggersBB,threeStripesPants,trefoilShirt,michelBasquiat,jacket));
         }
     }
 

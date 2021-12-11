@@ -2,6 +2,7 @@ package com.example.shein.model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,7 @@ public class UserEntity  extends BaseEntity{
     private String lastName;
     @ManyToMany(fetch = FetchType.EAGER)
     Set<UserRoleEntity> roles = new HashSet<>();
+
 
     public UserEntity() {
     }

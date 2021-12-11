@@ -1,0 +1,10 @@
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ${DB_PASSWORD}
+    username: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update

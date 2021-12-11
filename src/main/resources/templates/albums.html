@@ -14,7 +14,7 @@
         <div th:each="album : ${albums}" th:object="${album}"
              class="brand-section col-md-5 mr-auto d-flex flex-column">
             <a th:href="@{/albums/details/{id}(id=*{id})}">
-                <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Brand image">
+                <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Album image">
             </a>
             <h2>
                 <span th:text="*{name}">Album name</span>

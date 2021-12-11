@@ -14,10 +14,10 @@
         <div th:each="c : ${AllClothes}" th:object="${c}"
              class="brand-section col-md-5 mr-auto d-flex flex-column">
             <a th:href="@{/clothes/details/{id}(id=*{id})}">
-                <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Brand image">
+                <img class="img-thumbnail" th:src="*{getImageUrl()}" src = "" alt="Clothing image">
             </a>
             <h2>
-                <span th:text="*{brand +' '+ name}">Product name</span>
+                <span th:text="*{brand +' '+ name}">Clothing name</span>
             </h2>
         </div>
     </div>

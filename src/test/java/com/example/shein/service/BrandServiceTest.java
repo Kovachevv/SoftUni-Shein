@@ -18,11 +18,10 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 public class BrandServiceTest {
 
-    private BrandServiceImpl brandServiceToTest;
+    private BrandServiceImpl brandService;
 
     @Mock
     private ModelMapper modelMapperToTest;
-
     @Mock
     private BrandRepository mockBrandRepository;
     @Mock
@@ -30,7 +29,7 @@ public class BrandServiceTest {
 
     @BeforeEach
     void init(){
-        brandServiceToTest = new BrandServiceImpl(mockBrandRepository,mockUserRepository,modelMapperToTest);
+        brandService = new BrandServiceImpl(mockBrandRepository,mockUserRepository,modelMapperToTest);
 
         BrandEntity nike = new BrandEntity();
         nike.setName("Nike").setImageUrl("https://c.static-nike.com/a/images/w_1920,c_limit/bzl2wmsfh7kgdkufrrjq/image.jpg").

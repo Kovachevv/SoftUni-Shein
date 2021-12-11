@@ -73,12 +73,20 @@ public class ShoeServiceImpl implements ShoeService {
             BrandEntity nike = brandRepository.findByName("Nike").orElseThrow(IllegalArgumentException::new);
             BrandEntity adidas = brandRepository.findByName("Adidas").orElseThrow(IllegalArgumentException::new);
 
+
             ShoeEntity airForce1 = new ShoeEntity();
             airForce1.setBrand(nike).setName("Air Force 1").setImageUrl("https://static.footshop.com/564661/130801.jpg").setDescription("Named after the personal aircraft of the President of the United States, the Air Force One has been a mainstay on the Nike roster. They are among the longest-produced sneakers of all time and are one of the most popular Nike shoes off all time. The AF 1 low's come in a variety of different and striking colourways perfect for all tastes.");
             ShoeEntity airMax = new ShoeEntity();
             airMax.setBrand(nike).setName("Air Max 97").setImageUrl("https://static.footshop.com/424660/18972.jpg").setDescription("As the name suggests, it was 1997 when the Nike Air Max 97 futuristic sneakers saw light. Thanks to their timeless uppers, they instantly attracted attention and became a living legend so soon. The shock-absorbing air bubble is spread below the whole foot in this model to improve the overall impression of the sneaker.");
+            ShoeEntity ozweego = new ShoeEntity();
 
-            shoeRepository.saveAll(List.of(airForce1, airMax));
+            ozweego.setBrand(adidas).setName("Ozweego").setImageUrl("https://static.footshop.com/447691/79747.jpg").
+                    setDescription("When you hold the adidas Ozweego sneakers in your hands, you won't be able to decide whether you're holding a resurrected retro piece or a fantastic futuristic silhouette. And that's why they're magical. The adidas Ozweego sneakers became popular thanks to being the starting model for the successful adidas x Raf Simons collaboration.");
+            ShoeEntity ultraBoost = new ShoeEntity();
+
+            ultraBoost.setBrand(adidas).setName("UltraBoost").setImageUrl("https://static.footshop.com/485554/102652.jpg").
+setDescription("The adidas Ultra Boost as some of the most sophisticated running shoes on the market at the moment. Made with comfort and stability in mind they feature a Torsion® system and Fitframe 3D-moulded TPU which increase stability.");
+            shoeRepository.saveAll(List.of(airForce1, airMax,ozweego,ultraBoost));
 
         }
     }

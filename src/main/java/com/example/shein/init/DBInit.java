@@ -17,6 +17,7 @@ public class DBInit implements CommandLineRunner {
     private final AlbumService albumService;
 
 
+
     public DBInit(UserService userService, ClothingService clothingService, BrandService brandService, ShoeService shoeService, AccessoryService accessoryService, ArtistService artistService, AlbumService albumService) {
         this.userService = userService;
         this.clothingService = clothingService;
@@ -25,6 +26,7 @@ public class DBInit implements CommandLineRunner {
         this.accessoryService = accessoryService;
         this.artistService = artistService;
         this.albumService = albumService;
+
     }
 
     @Override

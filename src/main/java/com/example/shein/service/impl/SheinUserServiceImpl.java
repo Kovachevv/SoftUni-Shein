@@ -27,7 +27,7 @@ public class SheinUserServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity userEntity = userRepository.findByUsername(username).
+        var userEntity = userRepository.findByUsername(username).
                 orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
         return mapToUserDetails(userEntity);
     }

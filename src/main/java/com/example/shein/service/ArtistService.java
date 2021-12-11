@@ -14,6 +14,7 @@ public interface ArtistService {
     List<ArtistViewModel> getAllArtists();
 
     void initArtists();
+
     ArtistDetailsViewModel findById(Long id, String name);
 
     void addArtist(ArtistAddServiceModel serviceModel);

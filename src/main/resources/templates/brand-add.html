@@ -8,8 +8,6 @@
 <div th:replace="fragments/navbar :: navbar">
     Navbar
 </div>
-
-
 <div class="container">
     <h2 class="text-center text-white">Add a Brand</h2>
     <form th:action="@{/brands/add}" th:method="POST" th:object="${BrandDTO}"
